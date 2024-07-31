@@ -84,6 +84,12 @@ main {
     opacity: 0;
     animation: show 0.7s cubic-bezier(0.25, 0, 0.25, 1) 0.1s forwards;
 }
+.grid-item:nth-child(1) .tools img {
+    width: 56px;
+    height: 56px;
+
+    position: relative;
+}
 
 .grid-item:nth-child(2) {
     grid-column: 3 / 4;

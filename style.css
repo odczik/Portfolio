@@ -3,8 +3,8 @@
 :root {
     --primary-color: #24768b;
     --secondary-color: #2b2b2b;
-    --tertiary-color: #1b1b1b;
-    --quaternary-color: #1b1b1b;
+    --tertiary-color: #1a1a1a;
+    --quaternary-color: #161616;
     --quinary-color: #b3b3b3;
 }
 
@@ -23,6 +23,9 @@ main {
 }
 
 .main-grid {
+    overflow: hidden;
+    padding: 15px;
+
     --border-radius: 10px;
     --last-border-radius: 40px;
 

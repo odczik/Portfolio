@@ -98,6 +98,10 @@ main {
 .grid-item:nth-child(2) img {
     width: 100%;
     object-fit: cover;
+    transition: 0.5s cubic-bezier(0.25, 0, 0.25, 1);
+}
+.grid-item:nth-child(2):hover img {
+    transform: scale(1.1);
 }
 .grid-item:nth-child(2) div {
     position: absolute;
@@ -115,16 +119,19 @@ main {
     );
     background-size: 100% 9px;
         
-    animation: scroll 22s linear infinite;
+    animation: scroll-up 22s linear infinite;
     opacity: 0.1;
 }
-@keyframes scroll {
-    0% {
-        background-position: 0 100%;
-    }
-    100% {
-        background-position: 0 0;
-    }
+.grid-item:nth-child(2):hover div {
+    animation: scroll-down 22s linear infinite;
+}
+@keyframes scroll-up {
+    0% { background-position: 0 100%; }
+    100% { background-position: 0 0; }
+}
+@keyframes scroll-down {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
 }
 
 .grid-item:nth-child(3) {
@@ -169,7 +176,7 @@ main {
     flex-direction: column;
 }
 .contact-container {
-    border-radius: var(--border-radius);
+    border-radius: var(--last-border-radius);
 
     padding: 15px;
 
@@ -266,8 +273,6 @@ main {
     .main-grid {
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(19, 1fr);
-
-        grid-gap: 15px;
         
         box-sizing: border-box;
         position: relative;

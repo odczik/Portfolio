@@ -95,6 +95,11 @@ main {
     flex-wrap: wrap;
     gap: 10px;
 }
+.grid-item:nth-child(1) h2 {
+    font-size: 1.25em;
+    font-weight: 500;
+    margin: 10px;
+}
 .grid-item:nth-child(1) .tools img {
     width: 48px;
     height: 48px;
@@ -255,6 +260,14 @@ main {
     transform: scale(0.5);
     opacity: 0;
     animation: show 0.7s cubic-bezier(0.25, 0, 0.25, 1) 0.8s forwards;
+}
+.grid-item:nth-child(6) h4 {
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(145deg, var(--secondary-color), var(--primary-color));
+}
+.grid-item:nth-child(6):hover h4 {
+    color: transparent;
 }
 
 .grid-item:nth-child(7) {

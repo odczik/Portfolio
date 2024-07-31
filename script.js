@@ -13,8 +13,6 @@ setInterval(() => {
 }, 3000);
 
 gridItems[6].addEventListener("mousedown", e => {
-    console.log("clicked");
-
     gridItems[4].style.transform = "none";
     gridItems[4].style.opacity = "1";
     gridItems[4].style.animation = "pulse 0.5s forwards";

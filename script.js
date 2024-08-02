@@ -13,10 +13,24 @@ setInterval(() => {
 }, 3000);
 
 gridItems[6].addEventListener("mousedown", e => {
-    gridItems[4].style.transform = "none";
-    gridItems[4].style.opacity = "1";
-    gridItems[4].style.animation = "pulse 0.5s forwards";
-    setTimeout(() => {
-        gridItems[4].style.animation = "none";
-    }, 500);
+    if(window.innerWidth < 768) {
+        setTimeout(() => {
+            gridItems[4].style.transform = "none";
+            gridItems[4].style.opacity = "1";
+            gridItems[4].style.animation = "pulse 0.5s forwards";
+            setTimeout(() => {
+                gridItems[4].style.animation = "none";
+            }, 500);
+        }, 200)
+
+        //window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"});
+        gridItems[4].scrollIntoView({behavior: "smooth"});
+    } else {
+        gridItems[4].style.transform = "none";
+        gridItems[4].style.opacity = "1";
+        gridItems[4].style.animation = "pulse 0.5s forwards";
+        setTimeout(() => {
+            gridItems[4].style.animation = "none";
+        }, 500);
+    }
 });

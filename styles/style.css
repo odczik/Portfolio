@@ -268,6 +268,10 @@ nav.grid-item a.active {
 .grid-item:nth-child(4) p a {
     color: var(--primary-color);
     font-weight: 500;
+    text-decoration: none;
+}
+.grid-item:nth-child(4) p a:hover {
+    text-decoration: underline;
 }
 /* Education */
 

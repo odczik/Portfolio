@@ -121,7 +121,7 @@
     transform: translateX(-50%);
     z-index: 4;
 
-    padding: 10px;
+    padding: 15px;
     border-radius: 50%;
 
     width: 24px;
@@ -149,7 +149,7 @@
 
 @keyframes arrow-jump {
     0% { transform: translate(-50%, 0); }
-    15% { transform: translate(-50%, 0); }
+    15% { transform: translate(-50%, -15px); }
     30% { transform: translate(-50%, 0); }
     100% { transform: translate(-50%, 0); }
 }

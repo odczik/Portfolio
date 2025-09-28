@@ -1,0 +1,20 @@
+#experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 50px 0px;
+}
+
+#experience h2 {
+    text-align: center;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+
+}
+
+#experience .content {
+    flex-grow: 1;
+}

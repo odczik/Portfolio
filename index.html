@@ -3,95 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <meta name="description" content="Ondřej Dostál - Student & Full-Stack Web Developer">
-    <link rel="stylesheet" href="styles/footer.css">
+    <title>Ondřej Dostál</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/landing.css">
 </head>
 <body>
-    <main>
-        <div class="main-grid">
-            <div class="grid-item">
-                <div>
-                    <h1>Hi, I'm Ondřej</h1>
-                    <p>I'm a student and full-stack web developer from Ostrava, Czech&nbsp;Republic.</p>
-                </div>
-                <div>
-                    <h2>Some technologies I have worked with</h2>
-                    <div class="tools">
-                        <img src="assets/tools/icons8-html.svg" alt="html">
-                        <img src="assets/tools/icons8-css.svg" alt="css">
-                        <img src="assets/tools/icons8-javascript.svg" alt="javascript">
-                        <img src="assets/tools/icons8-typescript.svg" alt="typescript">
-                        <img src="assets/tools/icons8-nodejs.svg" alt="nodejs">
-                        <img src="assets/tools/icons8-react.svg" alt="react">
-                        <img src="assets/tools/icons8-nextjs.svg" alt="nextjs">
-                        <img src="assets/tools/icons8-mongo-db-96.svg" alt="mongodb">
-                        <!-- <img src="assets/tools/icons8-netlify.svg" alt="netlify"> -->
-                    </div>
-                </div>
-            </div>
-            <div class="grid-item">
-                <img src="assets/ocean_small.webp" alt="ocean">
-                <div></div>
-            </div>
-            <div class="grid-item">
-                "Anyone can write code a computer understands; good programmers write code humans understand."
-            </div>
-            <div class="grid-item">
-                <h1>Education</h1>
-                <div>
-                    <h2>High School <small><i>2023 - present</i></small></h2>
-                    <p>I'm currently attending <a href="https://www.spseiostrava.cz/" target="_blank" referrerpolicy="noopener">Secondary Industrial School of Electrical Engineering and Computer Science Ostrava</a> in Czech Republic.</p>
-                </div>
-            </div>
-            <div class="grid-item">
-                <a class="contact-container" href="https://github.com/odczik/" target="_blank" rel="noopener">
-                    <div class="contact-img-container">
-                        <img src="assets/icons8-github.svg" alt="github">
-                    </div>
-                    <div class="contact-text">Github</div>
-                </a>
-                <a class="contact-container" href="" target="_blank" rel="noopener">
-                    <div class="contact-img-container">
-                        <img src="assets/icons8-instagram.svg" alt="instagram">
-                    </div>
-                    <div class="contact-text">Instagram</div>
-                </a>
-                <a class="contact-container" href="" target="_blank" rel="noopener">
-                    <div class="contact-img-container">
-                        <img src="assets/icons8-discord.svg" alt="discord">
-                    </div>
-                    <div class="contact-text">Discord</div>
-                </a>
-                <a class="contact-container" href="" target="_blank" rel="noopener">
-                    <div class="contact-img-container">
-                        <img src="assets/icons8-mail-96.svg" alt="mail">
-                    </div>
-                    <div class="contact-text">Mail</div>
-                </a>
-            </div>
-            <div class="grid-item">
-                <h3>Student & Full-Stack Developer</h3>
-            </div>
-            <div class="grid-item">
-                <img src="https://github.com/odczik.png?size=100" alt="profile picture">
-                <h2>Ondřej Dostál</h2>
-            </div>
-            <nav class="grid-item">
-                <a class="active" href="index.html">Home</a>
-                <a href="#" onclick="alert('Coming soon..')">Projects</a>
-                <a href="#" onclick="alert('Coming soon..')">Contact</a>
-            </nav>
+    <section id="landing">
+        <span id="blur"></span>
+        <div class="text">
+            <h1 class="color-gradient">Ondřej Dostál</h1>
+            <p class="color-gradient">Full-Stack Developer from Czechia</p>
         </div>
-    </main>
+        <div class="socials">
+            <a href="#"><span class="icon" style="mask-image: url('../assets/icons8-github-48.png');"></span></a>
+            <a href="#"><span class="icon" style="mask-image: url('../assets/icons8-linkedin-48.png');"></span></a>
+            <a href="#"><span class="icon" style="mask-image: url('../assets/icons8-inbox-48.png');"></span></a>
+        </div>
+        <div class="scroller">
+            <a href="#about"><span class="icon" style="mask-image: url('../assets/icons8-up-48.png');"></span></a>
+        </div>
+        <div class="fade"></div>
+    </section>
+    <section id="about">
 
-    <footer>
-        <p>&copy;Ondřej Dostál 2024</p>
-        <p>Icons by <a href="https://icons8.com/">Icons8</a></p>
-    </footer>
+    </section>
 
-    <script src="script.js"></script>
-    <script src="is_sticky.js"></script>
+    <script src="scripts/cursor-effects.js"></script>
 </body>
 </html>

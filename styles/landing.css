@@ -8,7 +8,7 @@
     position: relative;
     overflow: hidden;
 
-    background-color: rgba(var(--primary-rgb), 0.1);
+    background-color: rgba(var(--primary-rgb), 0.2);
     
     --cursor-x: 50%;
     --cursor-y: 50%;

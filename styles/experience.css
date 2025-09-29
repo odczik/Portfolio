@@ -40,6 +40,13 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    transition: 0.5s var(--transition-sharp);
+}
+#experience .content .card:hover {
+    box-shadow: 0 3px 15px rgba(var(--primary-highlight-rgb), 0.2);
+    transform: translateY(-5px);
+    transition: 0.25s var(--transition-sharp);
 }
 
 /* Left */

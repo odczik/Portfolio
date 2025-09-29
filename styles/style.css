@@ -49,6 +49,11 @@ section {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.color-gradient-primary {
+    background: linear-gradient(130deg, var(--primary), var(--primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 .icon {
     display: block;

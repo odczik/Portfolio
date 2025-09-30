@@ -9,10 +9,15 @@
 #featured h2 {
     text-align: center;
     font-size: 3.5em;
-    margin-top: 5%;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
 #featured .content {
     flex-grow: 1;
+    width: 100%;
+    max-width: 1400px;
+    max-height: 700px;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
 }

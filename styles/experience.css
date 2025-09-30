@@ -9,14 +9,14 @@
 #experience h2 {
     text-align: center;
     font-size: 3.5em;
-    margin-top: 5%;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
 #experience .content {
     flex-grow: 1;
     width: 100%;
     max-width: 1400px;
+    max-height: 700px;
     display: flex;
     gap: 20px;
     flex-direction: row;
@@ -29,6 +29,8 @@
     gap: 20px;
     align-items: center;
     justify-content: center;
+
+    position: relative;
 }
 
 #experience .content .card {
@@ -50,11 +52,14 @@
 }
 
 /* Left */
-#experience #left {
+/* #experience #left {
     justify-content: flex-start;
-}
+} */
 #experience #left .switcher {
-    margin-top: 5%;
+    /* margin-top: 5%; */
+    /* position: absolute;
+    top: 0;
+    transform: translateY(-100%); */
 
     display: flex;
     flex-direction: row;
@@ -148,6 +153,10 @@
 
 
 /* Right */
+#experience #right {
+    padding-top: 70px;
+}
+
 #experience #right .card {
     width: 60%;
 }

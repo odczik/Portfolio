@@ -1,67 +1,73 @@
+// Cache DOM elements
 const switcher = document.querySelector('.switcher');
 const switcherAfter = switcher.querySelector(".switcher-background");
 const work = switcher.querySelector('.work');
 const education = switcher.querySelector('.education');
+const workContent = document.querySelector('.work-content');
 
-// Functions to set active state
-const setWorkActive = () => {
-    work.classList.add('active');
-    education.classList.remove('active');
+// Unified function to set active state
+const setActiveState = (activeElement, inactiveElement, contentType) => {
+    if (activeElement.classList.contains('active')) return;
+    
+    activeElement.classList.add('active');
+    inactiveElement.classList.remove('active');
 
-    switcherAfter.style.width = work.offsetWidth + 'px';
-    switcherAfter.style.height = work.offsetHeight + 'px';
-    switcherAfter.style.left = work.offsetLeft + 'px';
-    switcherAfter.style.top = work.offsetTop + 'px';
-}
-const setEducationActive = () => {
-    education.classList.add('active');
-    work.classList.remove('active');
+    // Update switcher background position
+    const { offsetWidth, offsetHeight, offsetLeft, offsetTop } = activeElement;
+    Object.assign(switcherAfter.style, {
+        width: offsetWidth + 'px',
+        height: offsetHeight + 'px',
+        left: offsetLeft + 'px',
+        top: offsetTop + 'px'
+    });
+    
+    changeContent(contentType);
+};
 
-    switcherAfter.style.width = education.offsetWidth + 'px';
-    switcherAfter.style.height = education.offsetHeight + 'px';
-    switcherAfter.style.left = education.offsetLeft + 'px';
-    switcherAfter.style.top = education.offsetTop + 'px';
-}
+// Initialize active state
+const initializeState = () => {
+    const activeTab = work.classList.contains('active') ? work : education;
+    const { offsetWidth, offsetHeight, offsetLeft, offsetTop } = activeTab;
+    Object.assign(switcherAfter.style, {
+        width: offsetWidth + 'px',
+        height: offsetHeight + 'px',
+        left: offsetLeft + 'px',
+        top: offsetTop + 'px'
+    });
+};
 
-// Initial state
-if(work.classList.contains('active')) {
-    setWorkActive();
-} else {
-    setEducationActive();
-}
+// Event listeners with delegation could be used here, but direct is fine for 2 elements
+work.addEventListener('click', () => setActiveState(work, education, "work"));
+education.addEventListener('click', () => setActiveState(education, work, "education"));
 
-// Event listeners
-work.addEventListener('click', () => {
-    if(work.classList.contains('active')) return;
-    setWorkActive();
-    changeContent("work");
-});
-education.addEventListener('click', () => {
-    if(education.classList.contains('active')) return;
-    setEducationActive();
-    changeContent("education");
-});
+// Initialize
+initializeState();
 
-// Content switching
-const letters = "ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvxyz0123456789";
-const decodeEffect = (element, text, revolutions) => {
-    text = text.split('');
+// Content switching with optimized decode effect
+const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvxyz0123456789";
+const LETTERS_LENGTH = LETTERS.length;
+
+const decodeEffect = (element, text, revolutions = 1/3) => {
+    if (!element || !text) return;
+    
+    const chars = text.split('');
     let count = 0;
+    
     const interval = setInterval(() => {
-        element.textContent = text.map((letter, i) => {
-            if(i < count){
-                return text[i];
-            }
-            if(letter === " ") return " ";
-            return letters[Math.floor(Math.random() * letters.length)];
+        element.textContent = chars.map((char, i) => {
+            if (i < count) return chars[i];
+            if (char === " ") return " ";
+            return LETTERS[Math.floor(Math.random() * LETTERS_LENGTH)];
         }).join('');
-        count += revolutions || 1/3;
-        if (count > text.length) {
+        
+        count += revolutions;
+        
+        if (count >= chars.length) {
             clearInterval(interval);
-            element.textContent = text.join('');
+            element.textContent = text; // Use original text, not joined array
         }
     }, 10);
-}
+};
 
 const jsonContent = {
     "work": [
@@ -98,37 +104,43 @@ const jsonContent = {
     ]
 }
 
-const workContent = document.querySelector('.work-content');
 const changeContent = (type) => {
-    workContent.querySelectorAll(".card").forEach((card, i) => {
-        if(type === "work") {
-            if(!jsonContent.work[i]){
-                card.style.display = "none";
-                return;
-            } else {
-                card.style.display = "flex";
-            }
-            decodeEffect(card.querySelector(".header-left h4"), jsonContent.work[i].position, 1/3);
-            decodeEffect(card.querySelector(".header-left h5"), jsonContent.work[i].company, 1/3);
-
-            decodeEffect(card.querySelectorAll(".header-right h6")[0], jsonContent.work[i].duration, 1/3);
-            decodeEffect(card.querySelectorAll(".header-right h6")[1], jsonContent.work[i].location, 1/3);
-
-            decodeEffect(card.querySelectorAll(".card-body p")[0], jsonContent.work[i].description, 1);
+    const contentData = jsonContent[type];
+    const cards = workContent.querySelectorAll(".card");
+    
+    cards.forEach((card, i) => {
+        const data = contentData[i];
+        
+        if (!data) {
+            card.style.display = "none";
+            return;
+        }
+        
+        card.style.display = "flex";
+        
+        // Cache selectors for better performance
+        const headerLeft = card.querySelector(".header-left");
+        const headerRight = card.querySelector(".header-right");
+        const cardBody = card.querySelector(".card-body");
+        
+        const h4 = headerLeft.querySelector("h4");
+        const h5 = headerLeft.querySelector("h5");
+        const rightH6s = headerRight.querySelectorAll("h6");
+        const bodyP = cardBody.querySelector("p");
+        
+        // Apply decode effects based on content type
+        if (type === "work") {
+            decodeEffect(h4, data.position, 1/3);
+            decodeEffect(h5, data.company, 1/3);
+            decodeEffect(rightH6s[0], data.duration, 1/3);
+            decodeEffect(rightH6s[1], data.location, 1/3);
+            decodeEffect(bodyP, data.description, 1);
         } else {
-            if(!jsonContent.education[i]){
-                card.style.display = "none";
-                return;
-            } else {
-                card.style.display = "flex";
-            }
-            decodeEffect(card.querySelector(".header-left h4"), jsonContent.education[i].degree, 1/3);
-            decodeEffect(card.querySelector(".header-left h5"), jsonContent.education[i].school, 1/3);
-
-            decodeEffect(card.querySelectorAll(".header-right h6")[0], jsonContent.education[i].duration, 1/3);
-            decodeEffect(card.querySelectorAll(".header-right h6")[1], jsonContent.education[i].location, 1/3);
-
-            decodeEffect(card.querySelectorAll(".card-body p")[0], jsonContent.education[i].description, 1);
+            decodeEffect(h4, data.degree, 1/3);
+            decodeEffect(h5, data.school, 1/3);
+            decodeEffect(rightH6s[0], data.duration, 1/3);
+            decodeEffect(rightH6s[1], data.location, 1/3);
+            decodeEffect(bodyP, data.description, 1);
         }
     });
-}
+};

@@ -3,7 +3,7 @@ const switcher = document.querySelector('.switcher');
 const switcherAfter = switcher.querySelector(".switcher-background");
 const work = switcher.querySelector('.work');
 const education = switcher.querySelector('.education');
-const workContent = document.querySelector('.work-content');
+const leftContent = document.querySelector('.left-content');
 
 // Unified function to set active state
 const setActiveState = (activeElement, inactiveElement, contentType) => {
@@ -45,7 +45,6 @@ initializeState();
 
 // Content switching with optimized decode effect
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvxyz0123456789";
-const LETTERS_LENGTH = LETTERS.length;
 
 const decodeEffect = (element, text, revolutions = 1/3) => {
     if (!element || !text) return;
@@ -57,7 +56,7 @@ const decodeEffect = (element, text, revolutions = 1/3) => {
         element.textContent = chars.map((char, i) => {
             if (i < count) return chars[i];
             if (char === " ") return " ";
-            return LETTERS[Math.floor(Math.random() * LETTERS_LENGTH)];
+            return LETTERS[Math.floor(Math.random() * LETTERS.length)];
         }).join('');
         
         count += revolutions;
@@ -106,7 +105,7 @@ const jsonContent = {
 
 const changeContent = (type) => {
     const contentData = jsonContent[type];
-    const cards = workContent.querySelectorAll(".card");
+    const cards = leftContent.querySelectorAll(".card");
     
     cards.forEach((card, i) => {
         const data = contentData[i];

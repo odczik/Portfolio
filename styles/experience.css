@@ -127,9 +127,7 @@
 
 #experience #left .left-content {
     position: relative;
-}
 
-#experience #left .work-content {
     display: flex;
     flex-direction: column;
     gap: 20px;

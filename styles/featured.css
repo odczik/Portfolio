@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
 }
 
 #featured h2 {
@@ -13,11 +13,173 @@
 }
 
 #featured .content {
-    flex-grow: 1;
     width: 100%;
-    max-width: 1400px;
-    max-height: 700px;
+    max-width: 1200px;
+
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
     gap: 20px;
+    flex-wrap: wrap;
+}
+
+#featured .content .card {
+    position: relative;
+    width: 48%;
+
+    background-color: var(--primary-background-card);
+    border-radius: 20px;
+    border: 1px solid rgba(var(--primary-light-rgb), 0.2);
+    padding: 0;
+
+    display: block;
+
+    overflow: hidden;
+
+    transition: 0.5s var(--transition-sharp);
+}
+#featured .content .card:hover {
+    box-shadow: 0 3px 15px rgba(var(--primary-highlight-rgb), 0.2);
+    transform: translateY(-5px);
+    transition: 0.25s var(--transition-sharp);
+}
+
+#featured .content .card .card-header {
+    position: relative;
+
+    background-color: var(--primary);
+    height: 150px;
+    width: 100%;
+
+    overflow: hidden;
+
+    transition: 0.5s var(--transition-sharp);
+}
+#featured .content .card .card-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+
+    filter: saturate(0);
+
+    transition: 0.5s var(--transition-sharp);
+}
+#featured .content .card .card-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(var(--primary-rgb), 0.5);
+    
+    transition: 0.5s var(--transition-sharp);
+}
+#featured .content .card:hover .card-header::after {
+    background: rgba(var(--primary-rgb), 0);
+}
+#featured .content .card:hover .card-header img {
+    filter: saturate(1);
+    transform: scale(1.1);
+}
+
+#featured .content .card .card-body {
+    padding: 20px;
+}
+
+#featured .content .card h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+#featured .content .card p {
+    margin: 12px 0;
+    font-size: 1rem;
+    color: var(--primary-light);
+}
+
+#featured .content .card .badges {
+    display: flex;
+    gap: 5px;
     flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: 20px;
+}
+#featured .content .card .badges .badge {
+    color: var(--primary-light);
+    background-color: rgba(var(--primary-light-rgb), 0.05);
+
+    border: 1px solid rgba(var(--primary-light-rgb), 0.2);
+    border-radius: 20px;
+
+    padding: 5px 10px;
+    font-size: 0.8rem;
+
+    cursor: default;
+}
+
+#featured .content .card .buttons {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+#featured .content .card .buttons .button {
+    width: 50%;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+    padding: 5px 0;
+
+    transition: 0.2s var(--transition-sharp);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+#featured .content .card .buttons .button .icon {
+    width: 20px;
+    height: 20px;
+
+    transition: 0.2s var(--transition-sharp);
+}
+
+#featured .content .card .buttons .button:nth-child(1) {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background-color: var(--primary-background-card);
+}
+#featured .content .card .buttons .button:nth-child(1) .icon {
+    background-color: var(--primary);
+}
+#featured .content .card .buttons .button:nth-child(1):hover {
+    background-color: var(--primary);
+    color: var(--primary-background-card);
+}
+#featured .content .card .buttons .button:nth-child(1):hover .icon {
+    background-color: var(--primary-background-card);
+}
+
+#featured .content .card .buttons .button:nth-child(2) {
+    border: 2px solid var(--primary-dark);
+    color: var(--primary-light);
+    background: linear-gradient(180deg, var(--primary-dark), rgba(var(--primary-rgb), 0.5));
+}
+#featured .content .card .buttons .button:nth-child(2) .icon {
+    background-color: var(--primary-light);
 }

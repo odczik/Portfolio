@@ -67,6 +67,9 @@ section {
     height: 100%;
 }
 
+.reveal {
+    transition: 0.2s ease-out;
+}
 .reveal-left {
     opacity: 0;
     transform: translateX(-100px);

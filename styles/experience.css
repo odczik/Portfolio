@@ -13,7 +13,7 @@
 }
 
 #experience .content {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     width: 100%;
     max-width: 1400px;
     /* max-height: 700px; */
@@ -183,7 +183,7 @@
 
 /* Right */
 #experience #right {
-    padding-top: 70px;
+    padding-top: 94px;
 }
 
 #experience #right .card {

@@ -86,3 +86,12 @@ section {
     opacity: 1;
     transform: none;
 }
+
+@media (max-width: 768px) {
+    body {
+        font-size: 0.8rem;
+    }
+    section {
+        margin-bottom: 25px;
+    }
+}

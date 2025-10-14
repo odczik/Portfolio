@@ -183,3 +183,9 @@
 #featured .content .card .buttons .button:nth-child(2) .icon {
     background-color: var(--primary-light);
 }
+
+@media (max-width: 768px) {
+    #featured .content .card {
+        width: 95%;
+    }
+}

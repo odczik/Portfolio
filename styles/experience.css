@@ -16,7 +16,7 @@
     flex-grow: 1;
     width: 100%;
     max-width: 1400px;
-    max-height: 700px;
+    /* max-height: 700px; */
     display: flex;
     gap: 20px;
     flex-direction: row;
@@ -227,4 +227,21 @@
     font-size: 1.35em;
     font-weight: 400;
     color: rgba(var(--primary-light-rgb), 0.65);
+}
+
+@media (max-width: 768px) {
+    #experience .content {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    #experience .content > div {
+        width: 95%;
+    }
+    #experience #left .card {
+        width: 90%;
+    }
+    #experience #right {
+        display: none;
+    }
 }

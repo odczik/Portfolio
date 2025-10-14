@@ -231,7 +231,7 @@
 
 @media (max-width: 768px) {
     #experience .content {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         justify-content: flex-start;
     }
@@ -241,7 +241,13 @@
     #experience #left .card {
         width: 90%;
     }
+    #experience #right .card {
+        width: 90%;
+    }
     #experience #right {
-        display: none;
+        padding-top: 0;
+    }
+    #experience #right {
+        /* display: none; */
     }
 }

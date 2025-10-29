@@ -1,0 +1,31 @@
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    padding-bottom: 60px;
+}
+
+#contact h2 {
+    text-align: center;
+    font-size: 3.5em;
+    margin: 0;
+}
+
+#contact p {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 500;
+    margin: 0;
+}
+#contact a {
+    color: var(--primary-highlight);
+    text-decoration: none;
+    /* font-size: 1.25em; */
+    font-weight: 600;
+}
+#contact a:hover {
+    text-decoration: underline;
+}

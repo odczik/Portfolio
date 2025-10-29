@@ -44,7 +44,7 @@ education.addEventListener('click', () => setActiveState(education, work, "educa
 initializeState();
 
 // Content switching with optimized decode effect
-const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvxyz0123456789";
+const LETTERS = "abcdefghijklnopqrstuvxyz0123456789";
 
 const decodeEffect = (element, text, revolutions = 1/3) => {
     if (!element || !text) return;
